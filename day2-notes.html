@@ -87,21 +87,59 @@
 
         <div class="checkbox-form">
             <h3>b. Checkbox</h3>
-            <p></p>
+            <p><mark>legend</mark> is used for the title of the form. <mark>value</mark> is for the value of the option.<br>
+                <mark>label</mark> is for the name of the option.<br>
+                remember that the <b>id</b> and <b>for</b> are the <b><i>same</i></b></p>
             <form>
                 <fieldset>
                     <legend>Choose the subject:</legend>
                   
                     <div>
-                      <input type="checkbox" id="CP2" name="subject" value="Computer Programmimg 2"/>
+                      <input type="checkbox" id="CP2" name="subject" value="Computer Programmimg 2">
                       <label for="CP2">Computer Programming 2</label>
                     </div>
                   
                     <div>
-                      <input type="checkbox" id="DS1" name="subject" value="Discrete Structures 1"/>
+                      <input type="checkbox" id="DS1" name="subject" value="Discrete Structures 1">
                       <label for="DS1">Discrete Structures 1</label>
                     </div>
                   </fieldset>
+            </form>
+        </div>
+
+        <div class="email-form">
+            <h3>c. Email</h3>
+            <form>
+                <label for="emails">Enter email address:</label>
+                <input type="email" id="emails">
+                <input type="submit">
+            </form>
+        </div>
+
+        <div class="file-form">
+            <h3>d. File</h3>
+            <p>add <mark>multiple</mark> inside the input element to allow multiple inputs. this also works for the email form</p>
+            <p>Single file:</p>
+            <form>
+                <label for="files">Select a file:</label>
+                <input type="file" id="files" name="files">
+                <input type="submit">
+            </form>
+            <p>Multiple files:</p>
+            <form>
+                <label for="files">Select files:</label>
+                <input type="file" id="files" name="files"multiple>
+                <input type="submit">
+            </form>
+        </div>
+
+        <div class="password-form">
+            <h3>e. Password</h3>
+            <p>collects and masks passwords</p>
+            <form>
+                <label for="passcode">Enter password:</label>
+                <input type="password" id="passcode" name="passcode">
+                <input type="submit">
             </form>
         </div>
 
