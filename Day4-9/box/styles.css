@@ -1,0 +1,43 @@
+.box {
+    width: 200px;          
+    height: 100px;          
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 20px;          
+    border: 2px solid #2980b9; 
+    margin: 20px;           
+}
+
+box {
+    width: 250px;
+    height: 150px;
+    background-color: #e74c3c;
+}
+
+
+box {
+    padding: 30px;
+} 
+
+
+box {
+    border: 4px dashed #c0392b;
+} 
+
+
+box {
+    margin: 30px;
+} 
+
+
+.box {
+    padding: 20px;
+}
+.box p {
+    margin: 0;
+} 
+
+
+.box {
+    margin: 0 auto;
+} 
