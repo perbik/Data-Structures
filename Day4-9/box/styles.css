@@ -9,7 +9,7 @@
 }
 
 box {
-    width: 250px;
+    width: 500px;
     height: 150px;
     background-color: #e74c3c;
 }
@@ -20,7 +20,7 @@ box {
 } 
 
 
-box {
+.box {
     border: 4px dashed #c0392b;
 } 
 
@@ -30,14 +30,39 @@ box {
 } 
 
 
-.box {
+.box, .box-2 {
     padding: 20px;
 }
-.box p {
+.box p, .box-2 p {
     margin: 0;
 } 
 
 
-.box {
+.box, .box-2 {
     margin: 0 auto;
 } 
+
+.box-2 {
+    width: 200px;          
+    height: 100px;          
+    background-color: #db3450;
+    color: #ffffff;
+    padding: 20px;          
+    border: 2px solid #b92929; 
+    margin: 20px;   
+}
+
+.box-2{
+    border: 4px dashed #712bc0;
+}
+
+.box-2{
+    position: absolute;
+    top: 0;
+    right: 80px;
+}
+
+.box-2{
+    margin: 30px;
+}
+
