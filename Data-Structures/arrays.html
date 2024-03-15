@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="arrays.css" />
+    <script src="arrays.js"></script>
+    <title>Arrays</title>
+</head>
+<body>
+
+    <h1 id="array-ds">Arrays</h1>
+    <div class="operations">
+
+        <!-- Creating the Array -->
+        <button onclick="createArray()">Create</button>
+
+        <!-- Input elements -->
+        <input type="text" id="insertElementInput" placeholder="Enter element">
+        <button onclick="insertElement()">Insert</button>
+
+        <!-- Delete elements -->
+        <input type="text" id="deleteElementInput" placeholder="Enter element">
+        <button onclick="deleteElement()">Delete</button>
+
+        <!-- Ascending Order -->
+        <button onclick="arrangeAscending()">Ascending Order</button>
+
+        <!-- Descending Order -->
+        <button onclick="arrangeDescending()">Descending Order</button>
+
+        <!-- Return to Main Menu -->
+        <button onclick="returnMenu()">Back to Main Menu</button>
+
+    </div>
+
+    <!-- Displaying the Array -->
+    <div id="array-display" class="array-container"></div>
+
+</body>
+</html>
