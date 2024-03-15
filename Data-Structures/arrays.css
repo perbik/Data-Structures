@@ -39,7 +39,8 @@ body {
 }
 
 .array-container {
-    border: 1px solid var(--text);
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
     padding: 10px;
     margin: 25px 25px;
 }
@@ -48,7 +49,29 @@ body {
     display: inline-block;
     border: 1px solid var(--secondary);
     padding: 5px;
-    margin-right: 5px;
     background-color: #f0f0f0;
+}
+
+.operations {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.operations button {
+    background-color: var(--primary);
+    color: var(--text-2);
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.operations input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
 }

@@ -17,11 +17,11 @@
         <button onclick="createArray()">Create</button>
 
         <!-- Input elements -->
-        <input type="text" id="insertElementInput" placeholder="Enter element">
+        <input type="text" id="insertElementInput" placeholder="Insert element" autocomplete="off">
         <button onclick="insertElement()">Insert</button>
 
         <!-- Delete elements -->
-        <input type="text" id="deleteElementInput" placeholder="Enter element">
+        <input type="text" id="deleteElementInput" placeholder="Delete element" autocomplete="off">
         <button onclick="deleteElement()">Delete</button>
 
         <!-- Ascending Order -->
@@ -37,6 +37,9 @@
 
     <!-- Displaying the Array -->
     <div id="array-display" class="array-container"></div>
+
+    <!-- Displaying what's happening -->
+    <div id="response"></div>
 
 </body>
 </html>
