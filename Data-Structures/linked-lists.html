@@ -13,5 +13,32 @@
     <h1 id="linked-lists-ds">Linked Lists</h1>
     <div class="operations">
 
+        <!-- Creating the Linked List -->
+        <button onclick="createEmptyList()">Create</button>
+
+        <!-- Input elements -->
+        <input type="text" id="insertElementInput" placeholder="Insert element" autocomplete="off">
+        <button onclick="insertElement()">Insert</button>
+
+        <!-- Delete elements -->
+        <input type="text" id="deleteElementInput" placeholder="Delete element" autocomplete="off">
+        <button onclick="deleteElement()">Delete</button>
+
+        <!-- Reverse Order -->
+        <button onclick="reverseList()">Reverse Order</button>
+
+        <!-- Remove Duplicates -->
+        <button onclick="removeDuplicates()">Remove Duplicates</button>
+
+        <!-- Display the Linked List-->
+        <button onclick="displayLinkedList()">Display</button>
+
+        <!-- Return to Main Menu -->
+        <button onclick="returnMenu()">Back to Main Menu</button>
+    </div>
+
+        <!-- Displaying the Linked List-->
+        <div id="list-container" class="list-element"></div>
+
 </body>
 </html>

@@ -37,3 +37,53 @@ body {
     font-size: 38px;
     color: var(--text);
 }
+
+.operations {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.operations button {
+    background-color: var(--primary);
+    color: var(--text-2);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.operations input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+}
+
+.list-container {
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 25px 25px;
+}
+
+.list-element {
+    display: inline-block;
+    border: 1px solid var(--secondary);
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.node {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+}
+.arrow {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 20px;
+}
