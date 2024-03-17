@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text: #141101;
+    --text-2: #fcfaf0;
+    --background: #f9f5e2;
+    --primary: #e1b404;
+    --secondary: #136290;
+}
+
+*,
+*::after,
+*::before { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 100px;
+    background-color: var(--background);
+}
+
+#stacks-ds {
+    font-weight: bold;
+    font-size: 38px;
+    color: var(--text);
+}
+
+.operations {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.operations button {
+    background-color: var(--primary);
+    color: var(--text-2);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.operations input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid var(--primary);
+}
+
+#stacks-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 25px 25px;
+}
+
+.stacks-element {
+    display: inline-block;
+    border: 1px solid var(--secondary);
+    padding: 5px;
+    margin-bottom: 10px; 
+    background-color: #f0f0f0;
+}

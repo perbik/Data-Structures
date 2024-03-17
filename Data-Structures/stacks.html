@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stacks.css" />
+    <script src="stacks.js"></script>
+    <title>Stacks</title>
+</head>
+<body>
+    
+    <h1 id="stacks-ds">Stacks</h1>
+    <div class="operations">
+        
+        <!-- Creating the Stack -->
+        <button onclick="createEmptyStack()">Create</button>
+
+        <!-- Max size of the Stack-->
+        <input type="text" id="setSizeInput" placeholder="Set the max size" autocomplete="off">
+        <button onclick="setSize()">Set</button>
+
+        <!-- Input Elements -->
+        <input type="text" id="insertElementInput" placeholder="Push element" autocomplete="off">
+        <button onclick="pushElement()">Push</button>
+
+        <!-- Delete Elements -->
+        <button onclick="popElement()">Pop</button>
+
+        <!-- Change Element in the Stack -->
+        <input type="text" id="changeElementInput" placeholder="Element to be replaced" autocomplete="off">
+        <input type="text" id="setElementInput" placeholder="Push new element" autocomplete="off">
+        <button onclick="changeElement()">Change Element</button>
+
+        <!-- Display the Stack-->
+        <button onclick="displayStack()">Display</button>
+
+        <!-- Return to Main Menu -->
+        <button onclick="returnMenu()">Back to Main Menu</button>
+    </div>
+
+    <!-- Displaying the Stack-->
+    <div id="stacks-container" class="stacks-element"></div>
+
+     <!-- Displaying what's happening -->
+    <div id="response"></div>
+
+</body>
+</html>
