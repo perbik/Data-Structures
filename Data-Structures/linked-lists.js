@@ -1,6 +1,6 @@
 class Node {
-    constructor(data) {
-        this.data = data;
+    constructor(element) {
+        this.element = element;
         this.next = null;
     }
 }
@@ -11,8 +11,8 @@ class LinkedList {
     }
 
     //insertion of element
-    insertNode(data) {
-        const newNode = new Node(data);
+    insertNode(element) {
+        const newNode = new Node(element);
         if (!this.head) {
             this.head = newNode;
         } else {
@@ -25,17 +25,17 @@ class LinkedList {
     }
 
     //deletion of element
-    deleteNode(data) {
+    deleteNode(element) {
         if (!this.head) {
             return;
         }
-        if (this.head.data === data) {
+        if (this.head.element === element) {
             this.head = this.head.next;
             return;
         }
         let current = this.head;
         while (current.next) {
-            if (current.next.data === data) {
+            if (current.next.element === element) {
                 current.next = current.next.next;
                 return;
             }
@@ -56,16 +56,16 @@ class LinkedList {
         this.head = prev;
     }
 
-    // Function to remove duplicates from the linked list
+    //Function to remove duplicates from the linked list
     removeDuplicates() {
         const set = new Set();
         let current = this.head;
         let prev = null;
         while (current) {
-            if (set.has(current.data)) {
+            if (set.has(current.element)) {
                 prev.next = current.next;
             } else {
-                set.add(current.data);
+                set.add(current.element);
                 prev = current;
             }
             current = current.next;
@@ -83,7 +83,7 @@ class LinkedList {
         headNode.textContent = 'head';
         listContainer.appendChild(headNode);
     
-        const headArrowElement = document.createElement('span');
+        const headArrowElement = document.createElement('div');
         headArrowElement.classList.add('arrow');
         headArrowElement.textContent = '→';
         listContainer.appendChild(headArrowElement);
@@ -91,10 +91,10 @@ class LinkedList {
         while (current) {
             const nodeElement = document.createElement('div');
             nodeElement.classList.add('node');
-            nodeElement.textContent = current.data;
+            nodeElement.textContent = current.element;
             listContainer.appendChild(nodeElement);
 
-            const arrowElement = document.createElement('span');
+            const arrowElement = document.createElement('div');
             arrowElement.classList.add('arrow');
             arrowElement.textContent = '→';
             listContainer.appendChild(arrowElement);
@@ -121,18 +121,18 @@ function createEmptyList() {
 
 function insertElement() {
     const insertElementInput = document.getElementById('insertElementInput');
-    const data = insertElementInput.value.trim();
-    if (data !== '') {
-        linkedList.insertNode(data);
+    const element = insertElementInput.value.trim();
+    if (element !== '') {
+        linkedList.insertNode(element);
     }
     insertElementInput.value = '';
 }
 
 function deleteElement() {
     const deleteElementInput = document.getElementById('deleteElementInput');
-    const data = deleteElementInput.value.trim();
-    if (data !== '') {
-        linkedList.deleteNode(data);
+    const element = deleteElementInput.value.trim();
+    if (element !== '') {
+        linkedList.deleteNode(element);
     }
     deleteElementInput.value = '';
 }
