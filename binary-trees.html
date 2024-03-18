@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="binary-trees.css" />
+    <script src="binary-trees.js"></script>
+    <title>Trees (Binary Tree)</title>
+</head>
+<body>
+
+    <h1 id="trees-ds">Trees (Binary Tree)</h1>
+    <div class="operations">
+        
+        <!-- Creating the Tree -->
+        <button onclick="createEmptTree()">Create</button>
+
+        <!-- Input Elements -->
+        <input type="text" id="insertElementInput" placeholder="Insert element" autocomplete="off">
+        <button onclick="insertElement()">Insert</button>
+
+        <!-- Delete Elements -->
+        <input type="text" id="deleteElementInput" placeholder="Delete element" autocomplete="off">
+        <button onclick="deleteElement()">Delete</button>
+
+        <!-- Display the Tree-->
+        <button onclick="displayTree()">Display Tree</button>
+
+        <!-- Display the Tree Structure-->
+        <button onclick="displayStructure()">Show Structure</button>
+
+        <!-- Return to Main Menu -->
+        <button onclick="returnMenu()">Back to Main Menu</button>
+    </div>
+
+    <!-- Displaying the Stack-->
+    <div id="trees-container" class="trees-element"></div>
+
+     <!-- Displaying what's happening -->
+    <div id="response"></div>
+    
+</body>
+</html>
