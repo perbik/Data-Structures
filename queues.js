@@ -16,9 +16,10 @@ class Queue {
         if (this.frontElement === this.rearElement) {
             displayText("Queue is empty. Cannot dequeue element.");
         }
-        const item = this.items[this.frontElement];
-        delete this.items[this.frontElement];
-        this.frontElement++;
+        const item = this.items.shift();
+        this.items = this.items.slice(this.frontElement); // Create new array without dequeued element
+        this.rearElement -= this.frontElement; // Adjust rearElement
+        this.frontElement = 0; // Reset frontElement
         return item;
     }
 
@@ -40,17 +41,18 @@ class Queue {
         }       
     }
     
-    display(){
+    display() {
         let queueContainer = document.getElementById('queues-container');
         queueContainer.innerHTML = '';
-
+    
         for (let i = this.frontElement; i < this.rearElement; i++) {
-            const stackElement = document.createElement('div');
-            stackElement.classList.add('queues-element');
-            stackElement.textContent = this.items[i];
-            queueContainer.appendChild(stackElement);
+            if (this.items[i] !== undefined) { 
+                const queueElement = document.createElement('div');
+                queueElement.classList.add('queues-element');
+                queueElement.textContent = this.items[i];
+                queueContainer.appendChild(queueElement);
+            }
         }
-
     }
 }
 
