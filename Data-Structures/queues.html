@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="queues.css" />
+    <script src="queues.js"></script>
+    <title>Queues</title>
+</head>
+<body>
+
+    <h1 id="queues-ds">Queues</h1>
+    <div class="operations">
+        
+        <!-- Creating the Queue -->
+        <button onclick="createEmptyQueue()">Create</button>
+
+        <!-- Input Elements -->
+        <input type="text" id="insertElementInput" placeholder="Enqueue element" autocomplete="off">
+        <button onclick="pushElement()">Enqueue</button>
+
+        <!-- Delete Elements -->
+        <button onclick="popElement()">Dequeue</button>
+
+        <!-- Check Front Element -->
+        <button onclick="changeElement()">Check Front</button>
+
+        <!-- Check Rear Element -->
+        <button onclick="changeElement()">Check Rear</button>        
+
+        <!-- Display the Queue-->
+        <button onclick="displayStack()">Display</button>
+
+        <!-- Return to Main Menu -->
+        <button onclick="returnMenu()">Back to Main Menu</button>
+    </div>
+
+    <!-- Displaying the Stack-->
+    <div id="queues-container" class="queues-element"></div>
+
+     <!-- Displaying what's happening -->
+    <div id="response"></div>
+    
+</body>
+</html>
