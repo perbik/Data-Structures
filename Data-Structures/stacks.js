@@ -6,7 +6,7 @@ class Stack {
 
 
     //pushing elements to the stack
-    pushStack(element) {
+    push(element) {
         if (this.items.length === this.maxSize) {
             displayText("STACKOVERFLOW");
         } else {
@@ -17,7 +17,7 @@ class Stack {
 
 
     //popping elements from the stack
-    popStack() {
+    pop() {
         if (this.items.length === 0) {
             displayText("STACKUNDERFLOW");
         } else {
@@ -83,13 +83,13 @@ function pushElement() {
     const insertElementInput = document.getElementById('insertElementInput');
     const element = insertElementInput.value.trim();
     if (element !== '') {
-        stack.pushStack(element);
+        stack.push(element);
     }
     insertElementInput.value = '';
 }
 
 function popElement() {
-    stack.popStack();
+    stack.pop();
 }
 
 function changeElement() {
@@ -120,7 +120,7 @@ function clearMessage() {
 }
 
 function returnMenu() {
-    window.location.href="index.html";
+    window.location.href="data-structures.html";
 }
 
 //notes: put a message every after action ganon

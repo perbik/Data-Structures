@@ -39,5 +39,5 @@ class Queue {
 
 
 function returnMenu() {
-    window.location.href="data-structures.html";
+    window.location.href="index.html";
 }

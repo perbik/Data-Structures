@@ -48,7 +48,7 @@ function arrangeDescending(){
 
 //function for returning to main menu
 function returnMenu(){
-    window.location.href="data-structures.html";
+    window.location.href="index.html";
 }
 
 //function for displaying the array
