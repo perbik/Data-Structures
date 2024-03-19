@@ -61,3 +61,34 @@ body {
     border-radius: 5px;
     border: 1px solid var(--primary);
 }
+
+.node {
+    color: var(--text-2);
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary);
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.line {
+    position: absolute;
+    border-bottom: 2px solid black; 
+    width: 82px; 
+}
+
+.line.left {
+    transform-origin: top left;
+    transform: rotate(-45deg);
+}
+
+.line.right {
+    transform-origin: top right;
+    transform: rotate(45deg);
+}
+
+
