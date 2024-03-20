@@ -63,32 +63,30 @@ body {
 }
 
 .node {
-    color: var(--text-2);
+    position: absolute;
     width: 50px;
     height: 50px;
     background-color: var(--secondary);
-    border: 1px solid black;
-    border-radius: 50%;
-    display: flex; 
-    align-items: center;
+    color: var(--primary);
+    border-radius: 50%; 
+    display: flex;
     justify-content: center;
-    position: absolute;
+    align-items: center;
+    font-size: 18px;
 }
 
 .line {
     position: absolute;
-    border-bottom: 2px solid black; 
-    width: 82px; 
+    border-bottom: 2px solid var(--text);
 }
 
 .line.left {
     transform-origin: top left;
-    transform: rotate(-45deg);
+    transform: rotate(-25deg);
 }
 
 .line.right {
     transform-origin: top right;
-    transform: rotate(45deg);
+    transform: rotate(25deg);
 }
-
 

@@ -41,6 +41,7 @@ class Queue {
         }       
     }
     
+    //display the queue
     display() {
         let queueContainer = document.getElementById('queues-container');
         queueContainer.innerHTML = '';

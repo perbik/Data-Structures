@@ -32,18 +32,46 @@ function deleteElement() {
     
 }
 
-//fucntion for arranging the elements in ascending order
-function arrangeAscending(){
-    array.sort((a, b) => a - b);
-    displayArray();
-    displayText("The array is arranged in ascending order!");
+// function to perform bubble sort in ascending order
+function bubbleSortAscending(arr) {
+    const n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            if (parseInt(arr[j]) > parseInt(arr[j + 1])) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
 
-//function for arranging the elements in descending order
-function arrangeDescending(){
-    array.sort((a, b) => b - a);
+// function to perform bubble sort in descending order
+function bubbleSortDescending(arr) {
+    const n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            if (parseInt(arr[j]) < parseInt(arr[j + 1])) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+//function for arranging the elements in ascending order using bubble sort
+function arrangeAscending(){
+    bubbleSortAscending(array);
     displayArray();
-    displayText("The array is arranged in descending order!");
+    displayText("The array is arranged in ascending order using bubble sort!");
+}
+
+//function for arranging the elements in descending order using bubble sort
+function arrangeDescending(){
+    bubbleSortDescending(array);
+    displayArray();
+    displayText("The array is arranged in descending order using bubble sort!");
 }
 
 //function for returning to main menu
