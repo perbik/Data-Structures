@@ -58,14 +58,15 @@ class LinkedList {
 
     //Function to remove duplicates from the linked list
     removeDuplicates() {
-        const set = new Set();
         let current = this.head;
         let prev = null;
+        let noDuplicates = {};
+    
         while (current) {
-            if (set.has(current.element)) {
+            if (noDuplicates[current.element]) {
                 prev.next = current.next;
             } else {
-                set.add(current.element);
+                noDuplicates[current.element] = true;
                 prev = current;
             }
             current = current.next;

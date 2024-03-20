@@ -119,10 +119,10 @@ class BinaryTree {
 const tree = new BinaryTree();
 
 function createEmptyTree() {
+    clearMessage();
     let treeContainer = document.getElementById('trees-container');
     treeContainer.innerHTML = ''; 
     tree.root = null;
-    clearMessage();
 }
 
 function insertElement() {
@@ -148,9 +148,9 @@ function displayTree() {
 }
 
 function displayStructure() {
+    clearMessage();
     const treeInfo = tree.getTreeInfo();
     const structureContainer = document.getElementById('structure-container');
-    clearMessage();
 }
 
 function displayText(message) {
