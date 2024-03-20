@@ -32,7 +32,7 @@ body {
     background-color: var(--background);
 }
 
-#stacks-ds {
+#trees-ds {
     font-weight: bold;
     font-size: 38px;
     color: var(--text);
@@ -62,6 +62,7 @@ body {
     border: 1px solid var(--primary);
 }
 
+
 .node {
     position: absolute;
     width: 50px;
@@ -73,12 +74,19 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    left: calc(50% - 25px); /* Set left position to center horizontally */
+    top: calc(50% - 25px); /* Set top position to center vertically */
 }
 
 .line {
     position: absolute;
     border-bottom: 2px solid var(--text);
 }
+
+.line.left {
+    width: 220px; 
+}
+
 
 .line.left {
     transform-origin: top left;
@@ -88,5 +96,9 @@ body {
 .line.right {
     transform-origin: top right;
     transform: rotate(25deg);
+    width: 250px;
 }
 
+#response {
+    margin: 300px;
+}

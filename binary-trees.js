@@ -80,42 +80,40 @@ class BinaryTree {
         const treesContainer = document.getElementById('trees-container');
         treesContainer.innerHTML = ''; 
         if (this.root !== null) {
-            this.displayNode(this.root, 770, 210, 250, treesContainer);
+            const maxLevel = 4; 
+            this.displayNode(this.root, 770, 175, 300, treesContainer, 0, maxLevel);
         }
     }
     
-    displayNode(node, x, y, offsetX, container) {
-        const nodeDiv = document.createElement('div'); //node div
-        nodeDiv.classList.add('node');
-        nodeDiv.innerText = node.data;
-        nodeDiv.style.left = x + 'px';
-        nodeDiv.style.top = y + 'px';
-        container.appendChild(nodeDiv);
     
-        if (node.left !== null) {
-            const leftX = x - offsetX;
-            const leftY = y + 100;
-            const lineLeft = document.createElement('div'); //line div
-            lineLeft.classList.add('line', 'left');
-            lineLeft.style.left = (x - 200) + 'px'; //x-axis line
-            lineLeft.style.top = (y + 120) + 'px'; //y-axis line
-            lineLeft.style.width = offsetX - 30 + 'px'; //offset or gaps
-            container.appendChild(lineLeft);
-            this.displayNode(node.left, leftX, leftY, offsetX / 2, container); //positioning of the node and line
-        }
+    displayNode(node, x, y, offsetX, container, currentLevel, maxLevel) {
+        if (currentLevel < maxLevel) { //max at level 3
+            const nodeDiv = document.createElement('div');
+            nodeDiv.classList.add('node');
+            nodeDiv.innerText = node.data;
+            nodeDiv.style.left = x + 'px';
+            const topY = y + 50;
+            nodeDiv.style.top = topY + 'px';
+            container.appendChild(nodeDiv);
     
-        if (node.right !== null) {
-            const rightX = x + offsetX;
-            const rightY = y + 100;
-            const lineRight = document.createElement('div');
-            lineRight.classList.add('line', 'right');
-            lineRight.style.left = (x + 25) + 'px';
-            lineRight.style.top = (y + 135) + 'px';
-            lineRight.style.width = offsetX + 'px';
-            container.appendChild(lineRight);
-            this.displayNode(node.right, rightX, rightY, offsetX / 2, container);
+            if (node.left !== null) {
+                const leftX = x  - offsetX;
+                this.displayNode(node.left, leftX, topY, offsetX / 2, container, currentLevel + 1, maxLevel);
+            }
+            if (node.right !== null) {
+                const rightX = x + offsetX;
+                this.displayNode(node.right, rightX, topY, offsetX / 2, container, currentLevel + 1, maxLevel);
+            }
+            
+        } else {
+            displayText("You reached the maximum level, level 3!");
         }
-    }   
+    }
+    
+    getTreeInfo() {
+
+    }
+      
 }
 
 const tree = new BinaryTree();
@@ -124,6 +122,7 @@ function createEmptyTree() {
     let treeContainer = document.getElementById('trees-container');
     treeContainer.innerHTML = ''; 
     tree.root = null;
+    clearMessage();
 }
 
 function insertElement() {
@@ -148,8 +147,21 @@ function displayTree() {
     tree.display();
 }
 
-function displayStructure(){
-        
+function displayStructure() {
+    const treeInfo = tree.getTreeInfo();
+    const structureContainer = document.getElementById('structure-container');
+    clearMessage();
+}
+
+function displayText(message) {
+    clearMessage(); 
+    const msgText = document.createElement('p');
+    msgText.textContent = message;
+    document.getElementById('response').appendChild(msgText);
+}
+
+function clearMessage() {
+    document.getElementById('response').innerHTML = '';
 }
 
 function returnMenu() {
