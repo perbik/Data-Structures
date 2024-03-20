@@ -74,8 +74,6 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    left: calc(50% - 25px); /* Set left position to center horizontally */
-    top: calc(50% - 25px); /* Set top position to center vertically */
 }
 
 .line {
