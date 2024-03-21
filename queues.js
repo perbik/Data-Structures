@@ -1,26 +1,27 @@
 class Queue {
     constructor(){
         this.items = [];
-        this.frontElement = 0;
-        this.rearElement = 0;
+        this.frontElement = 0; //index used for the front element
+        this.rearElement = 0; //index used for the rear element (initial)
     }
 
     //enqueue elements to the queue
-    enqueue(element) {
-        this.items[this.rearElement] = element;
-        this.rearElement++;  
+    enqueueElement(element) {
+        this.items[this.rearElement] = element; //inserting the element to the rear
+        displayText(`You enqueued element ${element} to the queue! Click Display to see.`);
+        this.rearElement++; //increment the index for the next input
     }
 
     //dequeue elements to the queue
-    dequeue() {
-        if (this.frontElement === this.rearElement) {
-            displayText("Queue is empty. Cannot dequeue element.");
-            return undefined;
+    dequeueElement() {
+        //checking if the queue is empty
+        if (this.frontElement === this.rearElement) { 
+            displayText("Queue is empty.");
         }
-        const item = this.items[this.frontElement];
-        delete this.items[this.frontElement];
-        this.frontElement = (this.frontElement + 1) % this.items.length;
-        return item;
+        const item = this.items[this.frontElement]; //assign the front element
+        displayText(`You dequeued element ${item} from the queue! Click Display to see.`);
+        this.items[this.frontElement] = undefined; //assigning undefined to the front element to remove its value
+        this.frontElement = (this.frontElement + 1) % this.items.length; //moving the next element
     }
     
 
@@ -44,17 +45,16 @@ class Queue {
     
     //display the queue
     display() {
-        let queueContainer = document.getElementById('queues-container');
+        const queueContainer = document.getElementById('queues-container');
         queueContainer.innerHTML = '';
-    
+        let queueHTML = '';
         for (let i = this.frontElement; i < this.rearElement; i++) {
-            if (this.items[i] !== undefined) { 
-                const queueElement = document.createElement('div');
-                queueElement.classList.add('queues-element');
-                queueElement.textContent = this.items[i];
-                queueContainer.appendChild(queueElement);
+            if (this.items[i] !== undefined) {
+                const queueElement = '<div class="queues-element">' + this.items[i] + '</div>';
+                queueHTML += queueElement;
             }
         }
+        queueContainer.innerHTML = queueHTML;
     }
 }
 
@@ -73,13 +73,13 @@ function enqueueElement(){
     const insertElementInput = document.getElementById('insertElementInput');
     const element = insertElementInput.value.trim();
     if (element !== ''){
-        queue.enqueue(element);
+        queue.enqueueElement(element);
     }
     insertElementInput.value = '';
 }
 
 function dequeueElement(){
-    queue.dequeue();
+    queue.dequeueElement();
 }
 
 function displayQueue(){
