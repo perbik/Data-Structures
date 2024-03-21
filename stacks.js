@@ -7,24 +7,28 @@ class Stack {
 
     //pushing elements to the stack
     pushStack(element) {
+        //checking for fullness
         if (this.items.length === this.maxSize) {
             displayText("STACKOVERFLOW");
         } else {
+            //pushing element
             clearMessage();
-            this.items.push(element);
+            this.items[this.items.length] = element; //assigning index to the element
         }
     }
 
 
     //popping elements from the stack
     popStack() {
+        //checking for emptiness
         if (this.items.length === 0) {
             displayText("STACKUNDERFLOW");
         } else {
+            //removing the last inserted element
             clearMessage();
-            this.items.pop();
+            this.items[this.items.length - 1] = undefined; //assigning undefined to the last index
+            this.items.length--; //reducing the length
         }
-        
     }
 
     //setting the size of the stack
