@@ -3,6 +3,7 @@ class Node {
         this.element = element;
         this.left = null;
         this.right = null;
+        this.level = 0;
     }
 }
 
@@ -11,40 +12,49 @@ class BinaryTree {
         this.root = null;
     }
 
-    //adding element/element
+    //adding element
     insert(element) {
-        const newelement = parseInt(element);
-        const newNode = new Node(newelement);
+        const newElement = parseInt(element);
+        const newNode = new Node(newElement);
+        //checking if the tree is empty
         if (this.root === null) {
-            this.root = newNode;
+            this.root = newNode; //if the tree is empty, insert the element as the root
         } else {
-            this.insertNode(this.root, newNode);
+            this.insertNode(this.root, newNode); //if the tree is not empty, new node
         }
     }
 
     //recursively add node
     insertNode(node, newNode) {
-        if (newNode.element < node.element) {
-            if (node.left === null) {
-                node.left = newNode;
+        //comparing the elements
+        if (newNode.element < node.element) { //if it's less than the node.element(existing node), it'll be on the left subtree
+            //checking if it's empty
+            if (node.left === null) { 
+                node.left = newNode; //if empty, it's a new node
             } else {
-                this.insertNode(node.left, newNode);
+                this.insertNode(node.left, newNode); //if not, call this function again to compare
             }
-        } else {
+        } else { //if it's greater than, right subtree
             if (node.right === null) {
-                node.right = newNode;
+                node.right = newNode; //if empty, it's a new node
             } else {
-                this.insertNode(node.right, newNode);
+                this.insertNode(node.right, newNode); //if not, call this function again to compare
             }
         }
     }
 
+    //deleting the element
     delete(element) {
         this.root = this.deleteNode(this.root, element);
     }
 
+    //deleting the node
     deleteNode(root, key) {
-        if (root === null) return null;
+        //checking if the root is empty
+        if (root === null) {
+            return null;
+        }
+
 
         if (key < root.element) {
             root.left = this.deleteNode(root.left, key);
@@ -57,7 +67,6 @@ class BinaryTree {
                 root = null;
                 return root;
             }
-
             if (root.left === null) {
                 root = root.right;
                 return root;
@@ -65,7 +74,6 @@ class BinaryTree {
                 root = root.left;
                 return root;
             }
-
             const minRightNode = this.findMinNode(root.right);
             root.element = minRightNode.element;
             root.right = this.deleteNode(root.right, minRightNode.element);
@@ -78,43 +86,42 @@ class BinaryTree {
         return this.findMinNode(node.left);
     }
 
+    //displaying the tree
     display() {
         const treesContainer = document.getElementById('trees-container');
         treesContainer.innerHTML = ''; 
         if (this.root !== null) {
-            const maxLevel = 4; 
+            const maxLevel = 3; 
             this.displayNode(this.root, 770, 175, 300, treesContainer, 0, maxLevel);
         }
     }
     
-    
+    //displaying the actual nodes getting the positions, gaps, and number of levels and max level
     displayNode(node, x, y, offsetX, container, currentLevel, maxLevel) {
-        if (currentLevel < maxLevel) { //max at level 3
-            const nodeDiv = document.createElement('div');
-            nodeDiv.classList.add('node');
-            nodeDiv.innerText = node.element;
-            nodeDiv.style.left = x + 'px';
-            const topY = y + 50;
-            nodeDiv.style.top = topY + 'px';
-            container.appendChild(nodeDiv);
-    
+        if (currentLevel <= maxLevel) {
+            displayText(`Level: ${currentLevel}`); //displaying the current level
+            let nodeHTML = `<div class="node" style="left:${x}px; top:${y + 50}px;">${node.element}</div>`;
+            container.innerHTML += nodeHTML;
+            //checking if the left subtree is empty
             if (node.left !== null) {
-                const leftX = x  - offsetX;
-                this.displayNode(node.left, leftX, topY, offsetX / 2, container, currentLevel + 1, maxLevel);
+                const leftX = x - offsetX; //compute the positioning and gap between nodes
+                this.displayNode(node.left, leftX, y + 50, offsetX / 2, container, currentLevel + 1, maxLevel); //displaying node recursively
             }
+            //checking if the right subtree is empty
             if (node.right !== null) {
                 const rightX = x + offsetX;
-                this.displayNode(node.right, rightX, topY, offsetX / 2, container, currentLevel + 1, maxLevel);
+                this.displayNode(node.right, rightX, y + 50, offsetX / 2, container, currentLevel + 1, maxLevel);
             }
-            
         } else {
             displayText("You reached the maximum level, level 3!");
         }
     }
     
-    getTreeInfo() {
+    
+    //displaying the parent nodes, leaf nodes, and level of the tree
+    /*displayTreeStructure() {
 
-    }
+    }*/
       
 }
 
