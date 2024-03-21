@@ -117,12 +117,37 @@ class BinaryTree {
         }
     }
     
-    
     //displaying the parent nodes, leaf nodes, and level of the tree
-    /*displayTreeStructure() {
+    displayTreeStructure() {
+        let parentNodes = [];
+        let leafNodes = [];
+        const maxLevel = 3;
+        let currentLevel = 0; 
+        const treesContainer = document.getElementById('trees-container');
+        treesContainer.innerHTML = '';
+        if (this.root !== null) {
+            currentLevel = this.displayNode(this.root, 770, 175, 300, treesContainer, currentLevel, maxLevel);
+            this.identifyNodes(this.root, parentNodes, leafNodes);
+        }
+        displayText(`Parent Nodes: ${parentNodes} && Leaf Nodes: ${leafNodes} && Level: ${currentLevel}`);
+    }
 
-    }*/
-      
+    identifyNodes(node, parentNodes, leafNodes) {
+        if (node === null) {
+            return;
+        } 
+    
+        if (node.left === null && node.right === null) {
+            leafNodes[leafNodes.length] = node.element;
+        } else {
+            parentNodes[parentNodes.length] = node.element;
+        }
+    
+        //checking each subtree
+        this.identifyNodes(node.left, parentNodes, leafNodes);
+        this.identifyNodes(node.right, parentNodes, leafNodes);
+    }   
+
 }
 
 const tree = new BinaryTree();
@@ -158,7 +183,7 @@ function displayTree() {
 
 function displayStructure() {
     clearMessage();
-    const treeInfo = tree.getTreeInfo();
+    const currentLevel = tree.displayTreeStructure();
     const structureContainer = document.getElementById('structure-container');
 }
 
