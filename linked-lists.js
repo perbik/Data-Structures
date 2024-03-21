@@ -12,34 +12,38 @@ class LinkedList {
 
     //insertion of element
     insertNode(element) {
-        const newNode = new Node(element);
-        if (!this.head) {
+        const newNode = new Node(element); //creating a node
+        //checking if the list is empty, if empty - make the initial element the head
+        if (!this.head) { 
             this.head = newNode;
-        } else {
+            displayText(`You inserted element ${element} into the linked list. Click display to see.`);
+        } else { //adding the next elements to the list
             let current = this.head;
             while (current.next) {
                 current = current.next;
             }
-            current.next = newNode;
+            current.next = newNode; //inserting the new element to the current last node
+            displayText(`You inserted element ${element} into the linked list. Click display to see.`);
         }
     }
 
     //deletion of element
     deleteNode(element) {
-        if (!this.head) {
+        //checking if the list is empty, return if it's empty
+        if (!this.head || this.head.element === element) {
+            this.head = this.head ? this.head.next : null;
+            displayText(`You deleted element ${element} from the linked list. Click display to see.`);
             return;
         }
-        if (this.head.element === element) {
-            this.head = this.head.next;
-            return;
-        }
+        // traversing the list to find the specific element if it's not in the head
         let current = this.head;
         while (current.next) {
             if (current.next.element === element) {
                 current.next = current.next.next;
+                displayText(`You deleted element ${element} from the linked list. Click display to see.`);
                 return;
             }
-            current = current.next;
+            current = current.next; 
         }
     }
 
@@ -54,18 +58,19 @@ class LinkedList {
             current = next;
         }
         this.head = prev;
+        displayText(`You just reversed the order of the linked list. Click display to see.`);
     }
 
-    //Function to remove duplicates from the linked list
+    //removing duplicates from the linked list
     removeDuplicates() {
         let current = this.head;
         let prev = null;
         let noDuplicates = {};
-    
+        //checking if the element has duplicates
         while (current) {
-            if (noDuplicates[current.element]) {
+            if (noDuplicates[current.element]) { //if it has duplicates update the prev node/pointer
                 prev.next = current.next;
-            } else {
+            } else { //if it doesn't have duplicates, it will be return as true
                 noDuplicates[current.element] = true;
                 prev = current;
             }
@@ -78,48 +83,35 @@ class LinkedList {
         let current = this.head;
         let listContainer = document.getElementById('list-container');
         listContainer.innerHTML = '';
-
-        const headNode = document.createElement('div');
-        headNode.classList.add('node');
-        headNode.textContent = 'head';
-        listContainer.appendChild(headNode);
-    
-        const headArrowElement = document.createElement('div');
-        headArrowElement.classList.add('arrow');
-        headArrowElement.textContent = '→';
-        listContainer.appendChild(headArrowElement);
-
+        let headNode = '<div class="node">head</div>'; //adding the head
+        listContainer.innerHTML += headNode;
+        let headArrow = '<div class="arrow">→</div>'; //adding the arrows/poitners
+        listContainer.innerHTML += headArrow;
+        //
         while (current) {
-            const nodeElement = document.createElement('div');
-            nodeElement.classList.add('node');
-            nodeElement.textContent = current.element;
-            listContainer.appendChild(nodeElement);
-
-            const arrowElement = document.createElement('div');
-            arrowElement.classList.add('arrow');
-            arrowElement.textContent = '→';
-            listContainer.appendChild(arrowElement);
-
+            let nodeElement = `<div class="node">${current.element}</div>`; //inserting the elements 
+            listContainer.innerHTML += nodeElement;
+            let arrowElement = '<div class="arrow">→</div>'; //adding arrow after inserting an element
+            listContainer.innerHTML += arrowElement;
             current = current.next;
         }
-
-        const nullNode = document.createElement('div');
-        nullNode.classList.add('node');
-        nullNode.textContent = 'null';
-        listContainer.appendChild(nullNode);
+        let nullNode = '<div class="node">null</div>'; //adding the null
+        listContainer.innerHTML += nullNode;
     }
 }
 
-// Creating an instance of LinkedList
+// create an instance of a linked list
 const linkedList = new LinkedList();
 
-// Linked list operations functions
+// creating an empty linked list
 function createEmptyList() {
+    clearMessage();
     let listContainer = document.getElementById('list-container');
     listContainer.innerHTML = ''; 
     linkedList.head = null;
 }
 
+// inserting an element
 function insertElement() {
     const insertElementInput = document.getElementById('insertElementInput');
     const element = insertElementInput.value.trim();
@@ -129,6 +121,7 @@ function insertElement() {
     insertElementInput.value = '';
 }
 
+// deleting an element
 function deleteElement() {
     const deleteElementInput = document.getElementById('deleteElementInput');
     const element = deleteElementInput.value.trim();
@@ -138,18 +131,35 @@ function deleteElement() {
     deleteElementInput.value = '';
 }
 
+// function to be called when reversing an element
 function reverseList() {
     linkedList.reverse();
 }
 
+//function to be called to remove duplicates
 function removeDuplicates() {
     linkedList.removeDuplicates();
 }
 
+//function to be called to display the linked list
 function displayLinkedList() {
     linkedList.display();
 }
 
+//function for displaying texts
+function displayText(message) {
+    clearMessage(); 
+    const msgText = document.createElement('p');
+    msgText.textContent = message;
+    document.getElementById('response').appendChild(msgText);
+}
+
+//function for clearing message
+function clearMessage() {
+    document.getElementById('response').innerHTML = '';
+}
+
+//function to return to the main menu
 function returnMenu() {
     window.location.href="index.html";
 }
