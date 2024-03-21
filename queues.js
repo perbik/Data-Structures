@@ -15,20 +15,21 @@ class Queue {
     dequeue() {
         if (this.frontElement === this.rearElement) {
             displayText("Queue is empty. Cannot dequeue element.");
+            return undefined;
         }
-        const item = this.items.shift();
-        this.items = this.items.slice(this.frontElement); // Create new array without dequeued element
-        this.rearElement -= this.frontElement; // Adjust rearElement
-        this.frontElement = 0; // Reset frontElement
+        const item = this.items[this.frontElement];
+        delete this.items[this.frontElement];
+        this.frontElement = (this.frontElement + 1) % this.items.length;
         return item;
     }
+    
 
     //check the front element
     checkFront() {
-        if (this.items.length === 0) {
+        if (this.frontElement === this.rearElement) {
             displayText("Queue is empty");
         } else {
-            displayText("Front Element: " + this.items[0]);
+            displayText("Front Element: " + this.items[this.frontElement]);
         }
     }
 
