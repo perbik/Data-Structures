@@ -10,7 +10,7 @@ function createArray(){
 //function for inserting an element
 function insertElement(){
     const element = document.getElementById('insertElementInput').value;
-    array.push(element);
+    array[array.length] = element; //assigning element to the array na may available na index
     displayArray(); 
     displayText(`Element ${element} is inserted into the array.`);
     document.getElementById('insertElementInput').value = '';
@@ -18,18 +18,25 @@ function insertElement(){
 
 //function for deleting an element
 function deleteElement() {
-    const element = document.getElementById('deleteElementInput').value;
-    const index = array.indexOf(element);
-    if (index !== -1) {
-        array.splice(index, 1);
-        displayArray(); 
-        displayText(`Element ${element} deleted from the array.`);
-        document.getElementById('deleteElementInput').value = '';
-    } else {
-        displayText(`Element ${element} not found in the array.`);
-        document.getElementById('deleteElementInput').value = '';
+    const elementToDelete = document.getElementById('deleteElementInput').value;
+    let intIndex = -1;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === elementToDelete) {
+            intIndex = i;
+            break;
+        }
     }
-    
+    if (intIndex !== -1) {
+        for (let i = intIndex; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array.length--;
+        displayArray();
+        displayText(`Element ${elementToDelete} deleted from the array.`);
+    } else {
+        displayText(`Element ${elementToDelete} not found in the array.`);
+    }
+    document.getElementById('deleteElementInput').value = '';
 }
 
 // function to perform bubble sort in ascending order
