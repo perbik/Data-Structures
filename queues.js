@@ -30,7 +30,7 @@ class Queue {
         if (this.frontElement === this.rearElement) {
             displayText("Queue is empty");
         } else {
-            displayText("Front Element: " + this.items[this.frontElement]);
+            displayText("Front Element: " + this.items[this.frontElement]); //element at the this.items[0] will be displayed
         }
     }
 
@@ -39,7 +39,7 @@ class Queue {
         if (this.items.length === 0) {
             displayText("Queue is empty");
         } else {
-            displayText("Rear Element: " + this.items[this.items.length- 1]);
+            displayText("Rear Element: " + this.items[this.items.length- 1]); //element in the current length - 1 of the array will be displayed
         }       
     }
     
@@ -48,6 +48,7 @@ class Queue {
         const queueContainer = document.getElementById('queues-container');
         queueContainer.innerHTML = '';
         let queueHTML = '';
+        //iterating the elements in the queue
         for (let i = this.frontElement; i < this.rearElement; i++) {
             if (this.items[i] !== undefined) {
                 const queueElement = '<div class="queues-element">' + this.items[i] + '</div>';

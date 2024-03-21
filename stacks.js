@@ -54,7 +54,7 @@ class Stack {
 
     //displaying the stack
     display() {
-        let stackContainer = document.getElementById('stacks-container');
+        const stackContainer = document.getElementById('stacks-container');
         stackContainer.innerHTML = '';
         let stackHTML = '';
         //iterating the array/stack

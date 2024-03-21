@@ -1,6 +1,6 @@
 class Node {
-    constructor(data){
-        this.data = data;
+    constructor(element){
+        this.element = element;
         this.left = null;
         this.right = null;
     }
@@ -11,9 +11,10 @@ class BinaryTree {
         this.root = null;
     }
 
-    insert(data) {
-        const newData = parseInt(data);
-        const newNode = new Node(newData);
+    //adding element/element
+    insert(element) {
+        const newelement = parseInt(element);
+        const newNode = new Node(newelement);
         if (this.root === null) {
             this.root = newNode;
         } else {
@@ -21,8 +22,9 @@ class BinaryTree {
         }
     }
 
+    //recursively add node
     insertNode(node, newNode) {
-        if (newNode.data < node.data) {
+        if (newNode.element < node.element) {
             if (node.left === null) {
                 node.left = newNode;
             } else {
@@ -37,17 +39,17 @@ class BinaryTree {
         }
     }
 
-    delete(data) {
-        this.root = this.deleteNode(this.root, data);
+    delete(element) {
+        this.root = this.deleteNode(this.root, element);
     }
 
     deleteNode(root, key) {
         if (root === null) return null;
 
-        if (key < root.data) {
+        if (key < root.element) {
             root.left = this.deleteNode(root.left, key);
             return root;
-        } else if (key > root.data) {
+        } else if (key > root.element) {
             root.right = this.deleteNode(root.right, key);
             return root;
         } else {
@@ -65,8 +67,8 @@ class BinaryTree {
             }
 
             const minRightNode = this.findMinNode(root.right);
-            root.data = minRightNode.data;
-            root.right = this.deleteNode(root.right, minRightNode.data);
+            root.element = minRightNode.element;
+            root.right = this.deleteNode(root.right, minRightNode.element);
             return root;
         }
     }
@@ -90,7 +92,7 @@ class BinaryTree {
         if (currentLevel < maxLevel) { //max at level 3
             const nodeDiv = document.createElement('div');
             nodeDiv.classList.add('node');
-            nodeDiv.innerText = node.data;
+            nodeDiv.innerText = node.element;
             nodeDiv.style.left = x + 'px';
             const topY = y + 50;
             nodeDiv.style.top = topY + 'px';
