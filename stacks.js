@@ -13,6 +13,7 @@ class Stack {
         } else {
             //pushing element
             clearMessage();
+            displayText(`You pushed ${element} into the stack! Click Display to see.`);
             this.items[this.items.length] = element; //assigning index to the element
         }
     }
@@ -26,6 +27,7 @@ class Stack {
         } else {
             //removing the last inserted element
             clearMessage();
+            displayText(`You popped ${this.items[this.items.length - 1]} from the stack! Click Display to see.`);
             this.items[this.items.length - 1] = undefined; //assigning undefined to the last index
             this.items.length--; //reducing the length
         }
@@ -40,7 +42,7 @@ class Stack {
         return true;
     }
 
-    //changing specific element in the stadck using its index bc what if madami pa lang ganong element
+    //changing specific element in the stack using its index
     changeStack(index, newElement) {
         if (index >= 0 && index < this.maxSize) {
             clearMessage();
@@ -50,17 +52,16 @@ class Stack {
         }
     }
 
+    //displaying the stack
     display() {
         let stackContainer = document.getElementById('stacks-container');
         stackContainer.innerHTML = '';
-
+        let stackHTML = '';
+        //iterating the array/stack
         for (let i = this.items.length - 1; i >= 0; i--) {
-            const stackElement = document.createElement('div');
-            stackElement.classList.add('stacks-element');
-            stackElement.textContent = this.items[i];
-            stackContainer.appendChild(stackElement);
+            stackHTML += `<div class="stacks-element">${this.items[i]}</div>`;
         }
-
+        stackContainer.innerHTML = stackHTML;
     }
 }
 
@@ -127,4 +128,3 @@ function returnMenu() {
     window.location.href="index.html";
 }
 
-//notes: put a message every after action ganon
