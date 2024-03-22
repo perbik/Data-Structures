@@ -55,33 +55,33 @@ class BinaryTree {
             return null;
         }
 
-
+        //checking if the element to be deleted is less than, greater than, or equal to the root
         if (key < root.element) {
-            root.left = this.deleteNode(root.left, key);
+            root.left = this.deleteNode(root.left, key); //if less than, get the left as the root
             return root;
         } else if (key > root.element) {
-            root.right = this.deleteNode(root.right, key);
+            root.right = this.deleteNode(root.right, key); //if greater than, get the right as the root
             return root;
         } else {
-            if (root.left === null && root.right === null) {
+            if (root.left === null && root.right === null) { //if it's leaf, just remove
                 root = null;
                 return root;
             }
-            if (root.left === null) {
-                root = root.right;
+            if (root.left === null) { //has no left node
+                root = root.right; //get the right as the root
                 return root;
-            } else if (root.right === null) {
-                root = root.left;
+            } else if (root.right === null) { //has no right node
+                root = root.left; //left as the root
                 return root;
             }
-            const minRightNode = this.findMinNode(root.right);
+            const minRightNode = this.findMinNode(root.right); //treaversing the tree. paricularly, right subtree
             root.element = minRightNode.element;
             root.right = this.deleteNode(root.right, minRightNode.element);
             return root;
         }
     }
 
-    findMinNode(node) {
+    findMinNode(node) { //finding the minimum integer/number
         if (node.left === null) return node;
         return this.findMinNode(node.left);
     }

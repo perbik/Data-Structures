@@ -124,6 +124,7 @@ function clearMessage() {
     document.getElementById('response').innerHTML = '';
 }
 
+//function for returning to main menu
 function returnMenu() {
     window.location.href="index.html";
 }

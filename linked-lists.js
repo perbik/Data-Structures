@@ -29,7 +29,7 @@ class LinkedList {
 
     //deletion of element
     deleteNode(element) {
-        //checking if the list is empty, return if it's empty
+        //checking if the list is empty, return if it's empty and checking if it's the head
         if (!this.head || this.head.element === element) {
             this.head = this.head ? this.head.next : null;
             displayText(`You deleted element ${element} from the linked list. Click display to see.`);
