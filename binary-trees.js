@@ -74,7 +74,7 @@ class BinaryTree {
                 root = root.left; //left as the root
                 return root;
             }
-            const minRightNode = this.findMinNode(root.right); //treaversing the tree. paricularly, right subtree
+            const minRightNode = this.findMinNode(root.right); //treaversing the tree. paricularly, right subtree (successor)
             root.element = minRightNode.element;
             root.right = this.deleteNode(root.right, minRightNode.element);
             return root;

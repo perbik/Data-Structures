@@ -28,7 +28,6 @@ class Stack {
             //removing the last inserted element
             clearMessage();
             displayText(`You popped ${this.items[this.items.length - 1]} from the stack! Click Display to see.`);
-            this.items[this.items.length - 1] = undefined; //assigning undefined to the last index
             this.items.length--; //reducing the length
         }
     }
